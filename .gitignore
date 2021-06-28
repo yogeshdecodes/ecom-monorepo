@@ -7,6 +7,8 @@ npm-debug.log
 *.dev
 .DS_Store
 
+/client/build
+
 # Docker
 Dockerfile
 docker-compose.yml
