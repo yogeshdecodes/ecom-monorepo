@@ -7,8 +7,7 @@
   },
   "scripts": {
     "start": "node server",
-    "build": "cd client/ && npm install && npm run build",
-    "seeder": "cd client/ && node seeder.js"
+    "build": "cd client/ && npm install && npm run build"
   },
   "cacheDirectories": [
     "node_modules",
