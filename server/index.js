@@ -9,7 +9,7 @@ const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
 const isDev = process.env.NODE_ENV !== 'production';
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000;
 
 //Import all Routes
 const authRoutes = require('./routes/auth');
@@ -18,6 +18,7 @@ const categoryRoutes = require('./routes/category');
 const productRoutes = require('./routes/product');
 const orderRoutes = require('./routes/order');
 const paymentRoutes = require('./routes/payment');
+const { getAllProducts } = require('./controllers/product');
 
 //DB connection
 mongoose
@@ -66,10 +67,7 @@ if (!isDev && cluster.isMaster) {
   app.use(express.static(path.resolve(__dirname, '../client/build')));
 
   // Answer API requests.
-  // app.get('/api', function (req, res) {
-  //   res.set('Content-Type', 'application/json');
-  //   res.send('{"message":"Hello from the custom server!"}');
-  // });
+  app.get('/api/products',getAllProducts);
 
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {
