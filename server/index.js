@@ -1,10 +1,37 @@
+require('dotenv').config(); 
+const mongoose = require('mongoose');
 const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const path = require('path');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
 const isDev = process.env.NODE_ENV !== 'production';
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
+
+//Import all Routes
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
+const categoryRoutes = require('./routes/category');
+const productRoutes = require('./routes/product');
+const orderRoutes = require('./routes/order');
+const paymentRoutes = require('./routes/payment');
+
+//DB connection
+mongoose
+  .connect(process.env.DATABASE, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
+  .then(() => {
+    console.log('DB Connected');
+  })
+  .catch((err) => console.log(err));
+
 
 // Multi-process to utilize all CPU cores.
 if (!isDev && cluster.isMaster) {
@@ -22,14 +49,27 @@ if (!isDev && cluster.isMaster) {
 } else {
   const app = express();
 
+  //Middlewares
+  app.use(bodyParser.json());
+  app.use(cookieParser());
+  app.use(cors());
+
+  //Routes
+  app.use('/api', authRoutes);
+  app.use('/api', userRoutes);
+  app.use('/api', categoryRoutes);
+  app.use('/api', productRoutes);
+  app.use('/api', orderRoutes);
+  app.use('/api', paymentRoutes);
+
   // Priority serve any static files.
   app.use(express.static(path.resolve(__dirname, '../client/build')));
 
   // Answer API requests.
-  app.get('/api', function (req, res) {
-    res.set('Content-Type', 'application/json');
-    res.send('{"message":"Hello from the custom server!"}');
-  });
+  // app.get('/api', function (req, res) {
+  //   res.set('Content-Type', 'application/json');
+  //   res.send('{"message":"Hello from the custom server!"}');
+  // });
 
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {
@@ -40,3 +80,51 @@ if (!isDev && cluster.isMaster) {
     console.error(`Node ${isDev ? 'dev server' : 'cluster worker '+process.pid}: listening on port ${PORT}`);
   });
 }
+
+
+
+
+//Import all Routes
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
+const categoryRoutes = require('./routes/category');
+const productRoutes = require('./routes/product');
+const orderRoutes = require('./routes/order');
+const paymentRoutes = require('./routes/payment');
+
+//DB connection
+mongoose
+  .connect(process.env.DATABASE, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
+  .then(() => {
+    console.log('DB Connected');
+  })
+  .catch((err) => console.log(err));
+
+//Middlewares
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(cors());
+
+//Routes
+app.use('/api', authRoutes);
+app.use('/api', userRoutes);
+app.use('/api', categoryRoutes);
+app.use('/api', productRoutes);
+app.use('/api', orderRoutes);
+app.use('/api', paymentRoutes);
+
+//PORT
+const port = process.env.PORT || 8000;
+
+//staring a server
+server = app.listen(port, () => {
+  let serverport = server.address().port;
+  console.log(
+    `App listening at http://localhost:${port} or server ${serverport}`
+  );
+});

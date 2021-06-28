@@ -1,7 +1,7 @@
 {
   "name": "ecom-monorepo",
   "version": "0.0.1",
-  "description": "Monorepo having client and server code deployed on Heroku",
+  "description": "Ecom Monorepo having client and server code deployed on Heroku",
   "engines": {
     "node": "14.x"
   },
