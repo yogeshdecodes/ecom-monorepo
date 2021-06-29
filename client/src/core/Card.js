@@ -57,10 +57,11 @@ const Card = ({
     );
   };
   return (
-    <div className="card text-dark border border-info ">
+    <div className="card rounded text-dark shadow-sm ">
       <div className="card-header lead">{cartTitle}</div>
       <div className="card-body">
         {getARedirect(redirect)}
+        <span className="card-notify-badge">New</span>
         <ImageHelper product={product} />
         <p className="lead bg-success font-weight-normal text-wrap">
           {cartDescrption}

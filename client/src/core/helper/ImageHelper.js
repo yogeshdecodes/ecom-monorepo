@@ -32,7 +32,7 @@ export const ImageHelper = ({ product }) => {
   }, []);
 
   return (
-    <div className="rounded border border-success p-2">
+    <div className="rounded p-2">
       <img
         src={image}
         alt="card ui"

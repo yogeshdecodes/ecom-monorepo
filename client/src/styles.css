@@ -1,12 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+  background: #edf2f7;
+
+
+}
+
+
 .btn,
 .jumbotron,
 .nav :hover {
   border-radius: 0px;
 }
 
-body {
-  background: #edf2f7;
-}
+.card-notify-badge {
+        position: absolute;
+        left: -10px;
+        top: -20px;
+        background: #f2d900;
+        text-align: center;
+        border-radius: 30px 30px 30px 30px; 
+        color: #000;
+        padding: 5px 10px;
+        font-size: 14px;
+
+    }
 
 /* footer {
   position: absolute;

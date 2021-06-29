@@ -24,7 +24,7 @@ const UpdateCategory = ({ match }) => {
 
   useEffect(() => {
     preload(match.params.categoryId);
-  }, []);
+  });
 
   const goBack = () => {
     return (
