@@ -18,7 +18,6 @@ const Base = ({
         </div>
       </div>
       <footer>
-
       <div class="bottom section-padding">
 			<div class="container">
 				<div class="row">
@@ -30,11 +29,6 @@ const Base = ({
 				</div>
 			</div>
 		</div>
-
-        {/* <div className="container-fluid bg-success text-white text-center">
-          <h4>If you have question please reach out</h4>
-          <button className="btn btn-warning btn-lg">contact-us</button>
-        </div> */}
       </footer>
     </div>
   );

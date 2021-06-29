@@ -66,21 +66,6 @@ const Card = ({
       <div class=" m-auto"> <h5>{cartTitle}</h5> </div>
       <p class="font-weight-bold">₹ {cartPrice}</p>
       <div class="text-center mb-4"> {showAddToCart(addtoCart)}{showRemoveFromCart(removeFromCart)}</div>
-
-      {/* <div className="card-header lead">{cartTitle}</div>
-      <div className="card-body">
-        {getARedirect(redirect)}
-        <span className="card-notify-badge">New</span>
-        <ImageHelper product={product} />
-        <p className="lead bg-success font-weight-normal text-wrap">
-          {cartDescrption}
-        </p>
-        <p className="btn btn-success rounded  btn-sm px-4">₹ {cartPrice}</p>
-        <div className="row">
-          <div className="col-12">{showAddToCart(addtoCart)}</div>
-          <div className="col-12">{showRemoveFromCart(removeFromCart)}</div>
-        </div>
-      </div> */}
     </div>
   );
 };

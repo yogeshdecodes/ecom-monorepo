@@ -31,7 +31,6 @@ const Payment = ({ products, setReload = (f) => f, reload = undefined }) => {
   };
 
   const showbtdropIn = () => {
-    console.log('befordropin', info);
     return (
       <div>
         {info.clientToken !== null && products?.length > 0 ? (
@@ -45,7 +44,7 @@ const Payment = ({ products, setReload = (f) => f, reload = undefined }) => {
             </button>
           </div>
         ) : (
-          <h3>Please add something to cart</h3>
+          products?.length === 0? <h3>Please add something to cart</h3>: <h3>Please Login to make payment</h3>
         )}
       </div>
     );
