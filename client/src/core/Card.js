@@ -33,7 +33,7 @@ const Card = ({
       addtoCart && (
         <button
           onClick={addToCart}
-          className="btn btn-block btn-outline-success mt-2 mb-2"
+          className="btn btn-warning"
         >
           Add to Cart
         </button>
@@ -57,8 +57,16 @@ const Card = ({
     );
   };
   return (
-    <div className="card rounded text-dark shadow-sm ">
-      <div className="card-header lead">{cartTitle}</div>
+    <div className="card rounded ">
+      {getARedirect(redirect)}
+      <div class="card-image">
+          <span class="card-notify-badge">New</span>
+          <ImageHelper product={product} />
+      </div>
+      <div class=" m-auto"> <h5>{cartTitle}</h5> </div>
+      <div class="text-center my-4"> {showAddToCart(addtoCart)}{showRemoveFromCart(removeFromCart)}</div>
+
+      {/* <div className="card-header lead">{cartTitle}</div>
       <div className="card-body">
         {getARedirect(redirect)}
         <span className="card-notify-badge">New</span>
@@ -71,7 +79,7 @@ const Card = ({
           <div className="col-12">{showAddToCart(addtoCart)}</div>
           <div className="col-12">{showRemoveFromCart(removeFromCart)}</div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
