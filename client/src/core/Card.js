@@ -64,6 +64,7 @@ const Card = ({
           <ImageHelper product={product} />
       </div>
       <div class=" m-auto"> <h5>{cartTitle}</h5> </div>
+      <p class="font-weight-bold">₹ {cartPrice}</p>
       <div class="text-center my-4"> {showAddToCart(addtoCart)}{showRemoveFromCart(removeFromCart)}</div>
 
       {/* <div className="card-header lead">{cartTitle}</div>
