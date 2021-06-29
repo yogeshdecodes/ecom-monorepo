@@ -65,7 +65,7 @@ const Card = ({
       </div>
       <div class=" m-auto"> <h5>{cartTitle}</h5> </div>
       <p class="font-weight-bold">₹ {cartPrice}</p>
-      <div class="text-center my-4"> {showAddToCart(addtoCart)}{showRemoveFromCart(removeFromCart)}</div>
+      <div class="text-center mb-4"> {showAddToCart(addtoCart)}{showRemoveFromCart(removeFromCart)}</div>
 
       {/* <div className="card-header lead">{cartTitle}</div>
       <div className="card-body">
