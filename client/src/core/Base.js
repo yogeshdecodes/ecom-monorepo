@@ -17,11 +17,24 @@ const Base = ({
           <div className={className}>{children}</div>
         </div>
       </div>
-      <footer className="footer mt-auto py">
-        <div className="container-fluid bg-success text-white text-center">
+      <footer>
+
+      <div class="bottom section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div class="copyright ">
+							<p> Made with ❤️ by <a href="'https://twitter.com/yogeshdecodes" class="transition">Yogesh</a> </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        {/* <div className="container-fluid bg-success text-white text-center">
           <h4>If you have question please reach out</h4>
           <button className="btn btn-warning btn-lg">contact-us</button>
-        </div>
+        </div> */}
       </footer>
     </div>
   );

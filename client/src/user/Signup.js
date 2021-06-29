@@ -42,7 +42,7 @@ const Signup = () => {
 
   const signupForm = () => {
     return (
-      <div className="row">
+      <div className="row signup">
         <div className="col-md-6 offset-sm-3 text-left">
           <form>
             <div className="form-group">
@@ -65,7 +65,7 @@ const Signup = () => {
               />
             </div>
             <div className="form-group">
-              <label className="text-light">Password</label>
+              <label >Password</label>
 
               <input
                 className="form-control"

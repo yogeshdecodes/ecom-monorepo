@@ -39,7 +39,7 @@ const Signin = () => {
 
   const signinForm = () => {
     return (
-      <div className="row">
+      <div className="row signup">
         <div className="col-md-6 offset-sm-3 text-left">
           <form>
             <div className="form-group">
