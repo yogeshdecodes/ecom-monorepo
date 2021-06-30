@@ -2,6 +2,8 @@ import { React, useState } from 'react';
 import Base from '../core/Base';
 import { Redirect } from 'react-router-dom';
 import { signin, authenticate, isAuthenticated } from '../auth/helper/index';
+import { Link } from 'react-router-dom';
+
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -64,6 +66,8 @@ const Signin = () => {
               </div>
               <button onClick={onSubmit} className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
               <hr className="my-4"/>
+              <Link className="d-block text-center mt-2 small" to="/signup">Don't have an account? Sign Up</Link>
+
               </form>
           </div>
         </div>
