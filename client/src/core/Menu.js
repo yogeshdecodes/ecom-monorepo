@@ -36,7 +36,7 @@ const closeNav = () =>{
                 {isAuthenticated() && isAuthenticated().user.role === 1 && (<li className="upper-links"><Link style={activeTab(history, '/admin/dashboard')} className="links" to="/admin/dashboard">Dashboard</Link></li>
                 )}
                 {!isAuthenticated() && (
-          <Fragment><li className="upper-links"><Link  style={activeTab(history, '/signup')} className="links" to="/signin">Signin</Link></li>
+          <Fragment><li className="upper-links"><Link  style={activeTab(history, '/signin')} className="links" to="/signin">Signin</Link></li>
                 <li className="upper-links"><Link  style={activeTab(history, '/signup')} className="links" to="/signup">Signup</Link></li></Fragment>
         )}
                 {isAuthenticated() && (<li className="upper-links"><span className="links signout" onClick={() => {
@@ -86,7 +86,7 @@ const closeNav = () =>{
           <Fragment><Link to="/signin">Signin</Link>
                 <Link    to="/signup">Signup</Link></Fragment>
         )}
-                {isAuthenticated() && (<Link className=" signout" onClick={() => {
+                {isAuthenticated() && (<Link className="signout" to="" onClick={() => {
                 signout(() => {
                   history.push('/signin');
                 });

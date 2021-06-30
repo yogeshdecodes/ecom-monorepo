@@ -39,34 +39,39 @@ const Signin = () => {
 
   const signinForm = () => {
     return (
-      <div className="row signup">
-        <div className="col-md-6 offset-sm-3 text-left">
-          <form>
-            <div className="form-group">
-              <label>Email</label>
-              <input
-                onChange={handleChange('email')}
-                value={email}
-                className="form-control"
-                type="email"
-              />
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input
-                onChange={handleChange('password')}
-                value={password}
-                className="form-control"
-                type="password"
-              />
-            </div>
-            <button onClick={onSubmit} className="btn-success btn-block">
-              submit
-            </button>
-          </form>
+     <div className="container">
+    <div className="row">
+      <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div className="card card-signin my-5">
+          <div className="card-body">
+            <h5 className="card-title text-center">Sign In</h5>
+            <form className="form-signin">
+              <div className="form-label-group">
+                <input onChange={handleChange('email')}
+                value={email} type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus/>
+                <label for="inputEmail">Email address</label>
+              </div>
+
+              <div className="form-label-group">
+                <input onChange={handleChange('password')}
+                value={password} type="password" id="inputPassword" className="form-control" placeholder="Password" required/>
+                <label for="inputPassword">Password</label>
+              </div>
+
+              <div className="custom-control custom-checkbox mb-3">
+                <input type="checkbox" className="custom-control-input" id="customCheck1"/>
+                <label className="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button onClick={onSubmit} className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <hr className="my-4"/>
+              </form>
+          </div>
         </div>
       </div>
-    );
+    </div>
+  </div>
+
+      );
   };
 
   const performRedirect = () => {

@@ -18,12 +18,12 @@ const Base = ({
         </div>
       </div>
       <footer>
-      <div class="bottom section-padding">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<div class="copyright ">
-							<p> Made with ❤️ by <a href="'https://twitter.com/yogeshdecodes" class="transition">Yogesh</a> </p>
+      <div className="bottom section-padding">
+			<div className="container">
+				<div className="row">
+					<div className="col-md-12 text-center">
+						<div className="copyright ">
+							<p> Made with ❤️ by <a href="'https://twitter.com/yogeshdecodes" className="transition">Yogesh</a> </p>
 						</div>
 					</div>
 				</div>

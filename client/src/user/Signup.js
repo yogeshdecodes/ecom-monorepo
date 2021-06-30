@@ -8,14 +8,21 @@ const Signup = () => {
     name: '',
     email: '',
     password: '',
+    confirm_password: '',
     error: '',
     success: false,
   });
 
-  const { name, email, password, error, success } = values;
+  const { name, email, password, confirm_password, error, success } = values;
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
+    
+  if(name==='confirm_password' && event.target.value != password) {
+    event.target.setCustomValidity("Passwords Don't Match");
+  } else {
+    event.target.setCustomValidity('');
+  }
   };
 
   const onSubmit = (event) => {
@@ -32,54 +39,58 @@ const Signup = () => {
             name: '',
             email: '',
             password: '',
+            confirm_password: '',
             error: '',
             success: true,
           });
         }
       })
-      .catch(console.log('Error in signup'));
+      .catch((err)=>console.log('Error in signup',err));
   };
 
   const signupForm = () => {
     return (
-      <div className="row signup">
-        <div className="col-md-6 offset-sm-3 text-left">
-          <form>
-            <div className="form-group">
-              <label>Name</label>
-              <input
-                className="form-control"
-                onChange={handleChange('name')}
-                type="text"
-                value={name}
-              />
-            </div>
-            <div className="form-group">
-              <label>Email</label>
+<div className="container">
+    <div className="row">
+      <div className="col-lg-10 col-xl-9 mx-auto">
+        <div className="card card-signin flex-row my-5">
+          <div className="card-img-left d-none d-md-flex">
+            
+          </div>
+          <div className="card-body">
+            <h5 className="card-title text-center">Register</h5>
+            <form className="form-signin">
+              <div className="form-label-group">
+                <input  onChange={handleChange('name')} value={name} type="text" id="inputUserame" className="form-control" placeholder="Username" required autoFocus/>
+                <label for="inputUserame">Name</label>
+              </div>
 
-              <input
-                className="form-control"
-                onChange={handleChange('email')}
-                type="email"
-                value={email}
-              />
-            </div>
-            <div className="form-group">
-              <label >Password</label>
+              <div className="form-label-group">
+                <input onChange={handleChange('email')} value={email} type="email" id="inputEmail" className="form-control" placeholder="Email address" required/>
+                <label for="inputEmail">Email address</label>
+              </div>
+              
+              <hr/>
 
-              <input
-                className="form-control"
-                onChange={handleChange('password')}
-                type="password"
-                value={password}
-              />
-            </div>
-            <button onClick={onSubmit} className="btn-success btn-block">
-              submit
-            </button>
-          </form>
+              <div className="form-label-group">
+                <input  onChange={handleChange('password')} value={password} type="password" id="inputPassword" className="form-control" placeholder="Password" required/>
+                <label for="inputPassword">Password</label>
+              </div>
+              
+              <div className="form-label-group">
+                <input onChange={handleChange('confirm_password')} value={confirm_password} type="password" id="inputConfirmPassword" className="form-control" placeholder="Password" required/>
+                <label for="inputConfirmPassword">Confirm password</label>
+              </div>
+
+              <button onClick={onSubmit} className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+              <Link className="d-block text-center mt-2 small" to="/signin">Already have an account? Sign In</Link>
+              <hr className="my-4"/>
+              </form>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
     );
   };
 
