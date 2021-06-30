@@ -51,7 +51,7 @@ const closeNav = () =>{
         <div className="row row2">
             <div className="col-sm-2">
                 <h2 style={{margin:"0px"}}><span className="smallnav menu" onClick={openNav}>☰ Ebay</span></h2>
-                <h1 style={{margin:"0px"}}><span className="largenav">Ebay</span></h1>
+                <Link to="/" className="text-white"><h1 style={{margin:"0px"}}><span >Ebay</span></h1></Link>
             </div>
             <div className="flipkart-navbar-search smallsearch col-sm-8 col-11">
                 <div className="row">
@@ -79,6 +79,7 @@ const closeNav = () =>{
         <span className="sidenav-heading">Menu</span>
         <a href="#" className="closebtn" onClick={(e) => { e.preventDefault(); closeNav() }}>×</a>
     </div>
+    <Link  to="/">Home</Link>
     {isAuthenticated() && isAuthenticated().user.role === 1 && (<Link  to="/admin/dashboard">Dashboard</Link>
                 )}
 
